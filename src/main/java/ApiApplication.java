@@ -1,10 +1,16 @@
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
 
 @SpringBootApplication
 
-@ComponentScan(basePackages = {"br.com.lucascrippa.controllers"})
+@ComponentScan(basePackages = {"br.com.lucascrippa"})
+@EntityScan("br.com.lucascrippa")
+@EnableJpaRepositories(basePackages = "br.com.lucascrippa.alunos.AlunoRepository")
+
 public class ApiApplication {
 
 	public static void main(String[] args) {

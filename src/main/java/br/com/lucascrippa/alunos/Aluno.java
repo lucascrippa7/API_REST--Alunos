@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Bean;
 
 
 @Table(name = "alunos")
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of= "id")
+
 
 
 public class Aluno {
@@ -30,4 +32,12 @@ public class Aluno {
     @Embedded
     private Endereco endereco;
 
+    public Aluno(DadosCadastroAluno dados) {
+        this.nome = dados.nome();
+        this.email = dados.email();
+        this.ra = dados.ra();
+        this.periodo =  dados.periodo();
+        this.endereco = new Endereco(dados.endereco());
+
+    }
 }
