@@ -3,6 +3,7 @@ package br.com.lucascrippa.controllers;
 import br.com.lucascrippa.alunos.Aluno;
 import br.com.lucascrippa.alunos.AlunoRepository;
 import br.com.lucascrippa.alunos.DadosCadastroAluno;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -22,7 +23,7 @@ public class controllerAluno {
 
 	@PostMapping
 	@Transactional
-	public void cadastrar(@RequestBody DadosCadastroAluno dados) {
+	public void cadastrar(@RequestBody @Valid DadosCadastroAluno dados) {
 
 		repository.save(new Aluno(dados));
 	}
