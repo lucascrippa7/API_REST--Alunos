@@ -24,6 +24,8 @@ public class Aluno {
     private Long id;
     private String nome;
     private String email;
+
+    private String telefone;
     private String ra;
 
     @Enumerated(EnumType.STRING)
@@ -35,6 +37,7 @@ public class Aluno {
     public Aluno(DadosCadastroAluno dados) {
         this.nome = dados.nome();
         this.email = dados.email();
+        this.telefone = dados.telefone();
         this.ra = dados.ra();
         this.periodo =  dados.periodo();
         this.endereco = new Endereco(dados.endereco());
